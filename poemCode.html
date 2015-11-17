@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<style>
+			body {
+				background-color: #00001a;
+				margin: 0;
+				overflow: hidden;
+			}
+		</style>
+	</head>
+	<body>
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/three.js/r57/three.min.js"></script>
+		<script>
+			
+			/*
+			
+			MARINA ESPINOZA - CODE POETRY
+			SCROLL DOWN TO LINE 114 FOR CODE POEM :)
+			This poem is written in javascript, html, and Mr.Doob html editor and three.js
+			
+			*/
+			var create_starsquare = function (x,y,z, s, c){
+				var squareGeometry = new THREE.Geometry();
+				squareGeometry.vertices.push(new THREE.Vector3(0,  0, 0.0)); 
+				squareGeometry.vertices.push(new THREE.Vector3( s,  0, 0.0)); 
+				squareGeometry.vertices.push(new THREE.Vector3( s, s, 0.0)); 
+				squareGeometry.vertices.push(new THREE.Vector3(0 , s, 0.0));
+				squareGeometry.faces.push(new THREE.Face3(0, 1, 2)); 
+				squareGeometry.faces.push(new THREE.Face3(0, 2, 3)); 
+				
+				var squareMaterial = new THREE.MeshBasicMaterial({color:c, side:THREE.DoubleSide, overdraw: true}); 
+				var squareMesh = new THREE.Mesh(squareGeometry, squareMaterial); 
+				
+				squareMesh.position.set(x, y, z); 
+				
+				return squareMesh;
+			}
+
+			var init = function () {
+			
+				
+
+				renderer = new THREE.CanvasRenderer();
+				renderer.setSize( window.innerWidth, window.innerHeight );
+				document.body.appendChild( renderer.domElement );
+
+				camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 1000 );
+				camera.position.z = 500;
+
+				scene = new THREE.Scene();
+				not_lost = scene;
+				
+				
+				Wandering = new create_starsquare(20-4, 10-4, 4.0, 10, 0xadadbc); scene.add(Wandering); 
+				traveler = new create_starsquare(70-4, 300-4, 4.0, 10,0xadadbc); scene.add(traveler); 
+				walked = new create_starsquare(-100-4, 200-4, 4.0, 10, 0xadadbc);scene.add(walked); 	
+				far = new create_starsquare(-100-4, -200-4, 4.0, 10, 0xadadbc); scene.add(far); 
+				day = new create_starsquare(-300-4, -100-4, 4.0, 10, 0xadadbc); scene.add(day); 
+				night = new create_starsquare(-300-4, 320-4, 4.0, 10, 0xadadbc); scene.add(night); 
+				humming = new create_starsquare(-500-4, 150-4, 4.0, 10, 0xadadbc); scene.add(humming); 
+				song = new create_starsquare(-560-4, 80-4, 4.0, 10, 0xadadbc); scene.add(song); 
+				tired = new create_starsquare(-670-4, 350-4, 4.0, 10, 0xadadbc); scene.add(tired);		
+				weary = new create_starsquare(-670-4, -300-4, 4.0, 10, 0xadadbc); scene.add(weary); 	
+				look = new create_starsquare(300-4, -270-4, 4.0, 10, 0xadadbc); scene.add(look); 
+				stars = new create_starsquare(520-4, -150-4, 4.0, 10, 0xadadbc); scene.add(stars); 
+				watch = new create_starsquare(700-4, 320-4, 4.0, 10, 0xadadbc); scene.add(watch); 
+				above = new create_starsquare(300-4, -50-4, 4.0, 10, 0xadadbc); scene.add(above);
+				wonder = new create_starsquare(500-4, -100-4, 4.0, 10, 0xadadbc); scene.add(wonder); 
+				belong = new create_starsquare(310-4, -70-4, 4.0, 10, 0xadadbc); scene.add(belong);
+				
+				dont = new create_starsquare(20, 10, 4.0, 2, 0xFFFFFF); scene.add(dont);
+				know = new create_starsquare(70, 300, 4.0, 2,0xFFFFFF); scene.add(know); 
+				personal = new create_starsquare(-100, 200, 4.0, 2, 0xFFFFFF); scene.add(personal); 	
+				find = new create_starsquare(-100, -200, 4.0, 2, 0xFFFFFF); scene.add(find); 
+				place = new create_starsquare(-300, -100, 4.0, 2, 0xFFFFFF); scene.add(place); 
+				called = new create_starsquare(-300, 320, 4.0, 2, 0xFFFFFF); scene.add(called); 
+				home = new create_starsquare(-500, 150, 4.0, 2, 0xFFFFFF); scene.add(home); 
+				Never = new create_starsquare(-560, 80, 4.0, 2, 0xFFFFFF); scene.add(Never); 
+				stayed = new create_starsquare(-670, 350, 4.0, 2, 0xFFFFFF); scene.add(stayed);		
+				not = new create_starsquare(-670, -300, 4.0, 2, 0xFFFFFF); scene.add(not); 	
+				second = new create_starsquare(300, -270, 4.0, 2, 0xFFFFFF); scene.add(second); 
+				Now = new create_starsquare(520, -150, 4.0, 2, 0xFFFFFF); scene.add(Now); 
+				older = new create_starsquare(700, 320, 4.0, 2, 0xFFFFFF); scene.add(older); 
+				no = new create_starsquare(300, -50, 4.0, 2, 0xFFFFFF); scene.add(no);
+				wonder = new create_starsquare(500, -100, 4.0, 2, 0xFFFFFF); scene.add(wonder); 
+				roam = new create_starsquare(310, -70, 4.0, 2, 0xFFFFFF); scene.add(roam);
+				
+				Hold = new create_starsquare(5, 45, 4.0, 5, 0xFFFFFF); scene.add(Hold); 
+				spirit = new create_starsquare(-300, -350, 4.0, 5, 0xFFFFFF); scene.add(spirit); 	
+				one = new create_starsquare(350, 350, 4.0, 5, 0xFFFFFF); scene.add(one); 
+				take = new create_starsquare(650, -350, 4.0, 5, 0xFFFFFF); scene.add(take); 
+				hope = new create_starsquare(-200, 200, 4.0, 5, 0xFFFFFF); scene.add(hope);
+				strong = new create_starsquare(-650,-100, 4.0, 5, 0xFFFFFF); scene.add(strong);	
+				will = new create_starsquare(-230, -150, 4.0, 5, 0xFFFFFF); scene.add(will); 
+				carry = new create_starsquare(545, -80, 4.0, 5, 0xFFFFFF); scene.add(carry); 	
+				Dont = new create_starsquare(100, -350, 4.0, 5, 0xFFFFFF); scene.add(Dont); 	
+				blind = new create_starsquare(630, -200, 4.0, 5, 0xFFFFFF); scene.add(blind); 
+				bit = new create_starsquare(300, 70, 4.0, 5, 0xFFFFFF); scene.add(bit); 
+				voice = new create_starsquare(-30, -50, 4.0, 5, 0xFFFFFF); scene.add(voice);
+				high = new create_starsquare(-500, -50, 4.0, 5, 0xFFFFFF); scene.add(high); 
+				dusk = new create_starsquare(-310, -70, 4.0, 5, 0xFFFFFF); scene.add(dusk);
+				dawn = new create_starsquare(-310, 100, 4.0, 5, 0xFFFFFF); scene.add(dawn);
+				
+				time = new THREE.CircleGeometry(150,40);
+				cost = new THREE.MeshBasicMaterial( {color: 0xffffff, overdraw: true} );
+				realize = new THREE.Mesh( time, cost ); realize.position.set(window.innerWidth/3,window.innerHeight/4,0);
+				not_lost.add( realize );
+				
+				renderer.render( scene, camera );
+
+			}
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+
+			var Not_All_Who_Wander_Are_Lost = function () {
+				
+				
+				Wandering; traveler; /*,Who*/ walked; /*so*/ far;
+				/*From*/ day; /*into*/ night; /*still*/; humming; /*your*/ song;
+				/*But*/ tired; /*and*/ weary; /*you*/ look; /*at*/ /*the*/ stars;
+				/*They*/ watch; /*from*/ above; wonder; /*where*/ /*you*/ belong; /*?*/
+				
+				/*But*/ /*they*/ dont; know;/*, your*/ personal; legend;
+				/*To*/ find; /*the*/ place; /*you*/ /*once*/ called; home;
+				Never; stayed; /*place,*/ not; /*even a*/ second;
+				Now; /*that*/ /*you're*/ older;/*,*/ no; /*more*/ /*will*/ /*you*/ roam;
+				
+				Hold; /*tight*/ /*to*/ /*your*/ spirit;/*,let*/ /*no*/ one; take; /*it*/
+				/*With*/ hope; /*and*/ strong; will; /*to*/ carry; /*on*/
+				Dont; /*let*/ /*them*/ blind; /*you,*/ not; /*even*/ /*a*/ bit;
+				/*Keep*/ /*your*/ /*head*/ /*and*/ voice; high;/*,from*/ dusk; /*to*/ dawn;
+				
+				/*No*/ /*matter*/ /*the*/ time;/*,no*/ /*matter*/ /*the*/ cost;
+				/*They*/ /*will*/ /*soon*/ realize; /*,you*/ /*are*/ /*not*/ lost;
+
+			}
+			
+			
+			
+			
+			
+			
+			
+	
+
+			init();
+			Not_All_Who_Wander_Are_Lost();
+
+		</script>
+	</body>
+</html>
